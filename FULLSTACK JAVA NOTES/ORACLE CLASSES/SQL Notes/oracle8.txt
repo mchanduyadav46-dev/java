@@ -1,0 +1,307 @@
+college table 
+-------------
+create table college(sno numbe(3) primary key, sname varchar2(10),sadd varchar2(12));
+insert into college values(101,'raja','hyd');
+insert into college values(102,'ravi','delhi');
+insert into college values(103,'ramana','vizag');
+commit;
+
+library table 
+-------------
+create table library(roll_no number(3) REFERENCES college(sno),book_name varchar2(10));
+insert into library values(101,'java');
+insert into library values(102,'oracle');
+insert into library values(103,'HTML');
+insert into library values(103,'CSS');
+insert into library values(null,'React');
+commit;
+
+In order to drop the tables first we need to drop child table then parent table.
+ex:
+	drop table library;
+	drop table college;
+
+5) CHECK constraint 
+-------------------
+Check constraint is used to check domain of a column.
+
+Check constraint describes what type of value a column must accept.
+
+Check constraint can be created at column level and table level.
+
+
+column level 
+-------------
+
+ex:
+---
+drop table student;
+create table student(sno number(3),sname varchar2(10),
+					smarks number(3) check(smarks<=100));
+insert into student values(101,'raja',87);
+insert into student values(102,'ravi',187); // invalid 
+insert into student values(102,'ramana',100);
+commit;
+
+ex:
+----
+drop table student;
+create table student(sno number(3),sname varchar2(10),
+				smarks number(3) check(smarks between 0 AND 100));
+insert into student values(101,'raja',87);
+insert into student values(102,'ravi',187); // invalid 
+insert into student values(102,'ramana',100);
+commit;
+
+
+ex:
+----
+drop table student;
+create table student(sno number(3), sname varchar2(10) check(sname=upper(sname)),
+						sadd varchar2(12));
+
+insert into student values(101,'RAJA','hyd');
+
+insert into student values(102,'ravi','delhi'); // invalid 
+
+insert into student values(103,'Ramana','vizag'); // invalid 
+
+commit;
+
+
+table level
+-----------
+
+ex:
+
+drop table student;
+create table student(sno number(3), sname varchar2(10),sadd varchar2(12),
+						check(sname=upper(sname)));
+
+insert into student values(101,'RAJA','hyd');
+
+insert into student values(102,'ravi','delhi'); // invalid 
+
+insert into student values(103,'Ramana','vizag'); // invalid 
+
+commit;
+
+ex:
+--
+drop table student;
+create table student(sno number(3), sname varchar2(10),sadd varchar2(12),
+						check(sname=lower(sname)));
+
+insert into student values(101,'RAJA','hyd'); //invalid 
+
+insert into student values(102,'ravi','delhi'); 
+
+insert into student values(103,'Ramana','vizag'); // invalid 
+
+commit;
+
+
+Interview Queries 
+------------------
+Q) Write a query to add the constraint to emp table?
+
+	alter table emp ADD primary key(eid);
+
+
+Q) Write a query to drop the constraint from emp table?
+	
+	alter table emp DROP primary key;
+
+
+Q) What is the difference between ROWID and ROWNUM?
+
+ROWID
+-----
+It is a memory address or location where our records will store in a database table.
+
+ROWID is permanent.
+
+ex:
+--
+	select eid,ename,esal from emp;
+	select rowid,eid,ename,esal from emp;
+
+ROWNUM
+------
+ROWNUM always starts '1' and increment by '1'.
+
+ROWNUM is temperory.
+
+ex:
+	select eid,ename,esal from emp;
+	select rownum,eid,ename,esal from emp;
+	select rowid,rownum,eid,ename,esal from emp;
+
+Q) Write a query to display first three records from emp table?
+
+	select * from emp where rownum<=3;
+	or 
+	select * from emp where rownum IN (1,2,3);
+
+
+
+Q) Write a query to display 4th record from emp table?
+
+	select * from emp where rownum<=4
+	minus
+	select * from emp where rownum<=3;
+
+
+Q) Write a query to display last three records from emp table?
+
+	select * from emp where rownum<=3 order by eid desc;
+
+TCL commands
+============
+We havee three TCL commands
+
+1) commit 
+
+2) rollback 
+
+3) savepoint 
+
+
+1) commit 
+-----------
+It is used to make the changes permanent to database.
+
+ex:
+	drop table student;
+	create table student(sno number(3),sname varchar2(10),sadd varchar2(12));
+	insert into student values(101,'raja','hyd');
+	insert into student values(102,'ravi','delhi');
+	select * from student; // 2 records 
+	commit;
+	select * from student; // 2 records 
+	
+2) rollback 
+------------
+It is used to undo the changes which are not permanent.
+
+ex:
+	drop table student;
+	create table student(sno number(3),sname varchar2(10),sadd varchar2(12));
+	insert into student values(101,'raja','hyd');
+	insert into student values(102,'ravi','delhi');
+	select * from student; // 2 records 
+	rollback;
+	select * from student; // No rows selected
+
+3) savepoint 
+------------
+A savepoint is used to create a check point in a transaction.
+
+Instead of complete rollback we can rollback upto savepoint.
+
+syntax:
+--------
+	savepoint <savepoint_name>;
+
+ex:
+---
+	drop table student;
+	create table student(sno number(3),sname varchar2(10),sadd varchar2(12));
+	insert into student values(101,'raja','hyd');
+	insert into student values(102,'ravi','delhi');
+	savepoint sp1;
+	insert into student values(103,'Jack','China');
+	insert into student values(104,'Jacky','Japan');
+	savepoint sp2;
+	insert into student values(105,'Alan','USA');
+	insert into student values(106,'Nelson','UK');
+	select * from student; // 6 records 
+	rollback to sp2;
+	select * from student; // 4 records  
+
+
+Diagram: oracle8.1
+
+college table 
+------------
+create table college(sno number(3) PRIMARY KEY,sname varchar2(10), sadd varchar2(12));
+insert into college values(101,'raja','hyd');
+insert into college values(102,'ravi','delhi');
+insert into college values(103,'ramana','vizag');
+commit;	
+
+library table 
+-------------
+create table library(roll_no number(3) REFERENCES college(sno),book_name varchar2(10));
+insert into library values(101,'java');
+insert into library values(102,'oracle');
+insert into library values(103,'HTML');
+insert into library values(103,'CSS');
+insert into library values(null,'React');
+commit;
+
+adminstration table 
+----------------------
+create table adminstration(sno number(3) REFERENCES college(sno),
+				branch varchar2(6), tution_fee number(10));
+
+insert into adminstration values(101,'CSE',80000);
+insert into adminstration values(102,'ECE',88000);
+insert into adminstration values(103,'EEE',90000);
+commit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,666 @@
+CSS Border Property 
+===================
+It is used to specify style, color and width of HTML element border.
+
+We have following list of CSS border properties.
+
+ex:
+	border-style 
+	border-color
+	border-width 
+	border shorthand 
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+			}
+			h2
+			{
+				border-style:dotted;
+			}
+			h3
+			{
+				border-style:dashed;
+			}
+			h4
+			{
+				border-style:double;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1> Heading tag 1 </h1>
+		<h2> Heading tag 2 </h2>
+		<h3> Heading tag 3 </h3>
+		<h4> Heading tag 4 </h4>
+	</body>	
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-color:violet;
+			}
+			h2
+			{
+				border-style:dotted;
+				border-color:#00FF44;
+			}
+			h3
+			{
+				border-style:dashed;
+				border-color:rgb(255,0,0);
+			}
+			h4
+			{
+				border-style:double;
+				border-color: hsl(50,100%,50%);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1> Heading tag 1 </h1>
+		<h2> Heading tag 2 </h2>
+		<h3> Heading tag 3 </h3>
+		<h4> Heading tag 4 </h4>
+	</body>	
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-color:violet;
+				border-width:5px;
+			}
+			h2
+			{
+				border-style:dotted;
+				border-color:#00FF44;
+				border-width:10px;
+			}
+			h3
+			{
+				border-style:dashed;
+				border-color:rgb(255,0,0);
+				border-width:15px;
+			}
+			h4
+			{
+				border-style:double;
+				border-color: hsl(50,100%,50%);
+				border-width:20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1> Heading tag 1 </h1>
+		<h2> Heading tag 2 </h2>
+		<h3> Heading tag 3 </h3>
+		<h4> Heading tag 4 </h4>
+	</body>	
+</html>
+
+
+		 
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border : 2px solid violet;
+			}
+			h2
+			{
+				border : 5px dotted #00FF44;
+			}
+			h3
+			{
+				border : 5px dashed rgb(255,0,0);
+			}
+			h4
+			{
+				border : 5px double hsl(50,100%,50%);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1> Heading tag 1 </h1>
+		<h2> Heading tag 2 </h2>
+		<h3> Heading tag 3 </h3>
+		<h4> Heading tag 4 </h4>
+	</body>	
+</html>
+
+ex:
+--<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-top-style: solid;
+				border-top-color: #FFFF00;
+				
+				border-right-style: dashed;
+				border-right-color: #FF0000;
+				
+				border-bottom-style: dotted;
+				border-bottom-color: #FF00FF;
+				
+				border-left-style: double;
+				border-left-color:#00FF00;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1> Heading tag 1 </h1>
+	</body>	
+</html>
+
+
+CSS margin property 
+===================
+CSS margin property is to specify space around the elements (outside the defined border).
+
+We have following list of CSS margin properties.
+
+ex:
+	margin-top 
+	margin-right 
+	margin-bottom 
+	margin-left 
+	margin shorthand 
+
+All the above margin property contains following values.
+
+ex:
+	Value			Description 
+	-----			-----------
+	auto 			Browser calculates the margin 
+
+	length 			It specifies a margin in px, pt, cm, em, etc.	
+
+	Percentage 		It specifies a margin in percent(%).
+
+	Inherit 		It specifies a margin from parent element.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				margin-top:100px;
+				margin-right:100px;
+				margin-bottom:100px;
+				margin-left:100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				margin-top:5%;
+				margin-right:10%;
+				margin-bottom:15%;
+				margin-left:20%;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				margin-top:100px;
+			}
+			h1
+			{
+				border:2px solid black;
+				margin-top:inherit;
+			}
+		</style>
+	</head>
+	<body>
+			<div>
+			<h1> Heading Tag </h1>
+			</div>
+	</body>
+</html>
+
+If margin contains four values.
+ex:
+	margin : 5px  10px  20px  40px;
+
+	Order -> top,  right, bottom, left 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+
+			h1
+			{
+				border:2px solid black;
+				margin : 5px  10px  20px  40px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+If margin contains three values.
+ex:
+	margin : 10px  20px  40px;
+
+	Order :  top,  left and right,  bottom 
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+
+			h1
+			{
+				border:2px solid black;
+				margin : 10px  20px  40px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+If margin contains two values.
+
+ex:
+	margin : 50px 100px;
+
+	Order : top and bottom , left and right
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+
+			h1
+			{
+				border:2px solid black;
+				margin : 50px 100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+If margin contains one value.
+
+ex:
+	margin : 100px;
+
+	Order --> all sides are 100px
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+
+			h1
+			{
+				border:2px solid black;
+				margin :100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+
+CSS padding property 
+===================
+CSS padding property is to specify space around the elements content (inside the defined border).
+
+We have following list of CSS padding properties.
+
+ex:
+	padding-top 
+	padding-right 
+	padding-bottom 
+	padding-left 
+	padding shorthand 
+
+All the above padding property contains following values.
+
+ex:
+	Value			Description 
+	-----			-----------
+	auto 			Browser calculates the padding
+
+	length 			It specifies a padding in px, pt, cm, em, etc.	
+
+	Percentage 		It specifies a padding in percent(%).
+
+	Inherit 		It specifies a padding from parent element.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+
+			h1
+			{
+				border:2px solid black;
+				padding-top:100px;
+				padding-right:100px;
+				padding-bottom:100px;
+				padding-left:100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+
+			h1
+			{
+				border:2px solid black;
+				padding-top:10%;
+				padding-right:15%;
+				padding-bottom:20%;
+				padding-left:25%;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding-top:100px;
+			}
+			h1
+			{
+				border:2px solid black;
+				padding-top:inherit;
+			}
+		</style>
+	</head>
+	<body>
+			<div>
+			<h1> Heading Tag </h1>
+			</div>
+	</body>
+</html>
+
+If padding contains four values.
+
+ex:
+	padding : 25px 50px 75px 100px;
+
+	Order : top, right, bottom , left 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				padding : 25px 50px 75px 100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+If padding contains three values.
+ex:
+	padding : 25px 50px 100px;
+
+	Order : top, left and right, bottom 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				padding : 25px 50px 100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+If padding contains two values.
+ex:
+	padding : 50px 100px;
+
+	Ordder : top and bottom, left and right 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				padding : 50px 100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+If padding contains one value.
+
+ex:
+	padding : 100px;
+
+	Order : all sides are 100px.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				padding : 100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+
+CSS height and width property 
+=============================
+CSS height property is used to set the height of an element.
+
+CSS width property is used to set the width of an element.
+
+CSS height and width do not include border, margin and padding.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				width:200px;
+				height:200px;
+			}
+		</style>
+	</head>
+	<body>
+			<div></div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				width:200px;
+				height:200px;
+				margin:150px auto;
+			}
+		</style>
+	</head>
+	<body>
+			<div></div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				max-width:200px;
+				min-height:200px;
+				margin:150px auto;
+			}
+		</style>
+	</head>
+	<body>
+			<div></div>
+	</body>
+</html>
+
